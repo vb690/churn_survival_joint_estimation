@@ -328,7 +328,6 @@ for context in np.unique(loaded_arrays['context_ts']):
     prediction = baseline_c.predict(
         x=loaded_arrays['X_feat_tr'][indices]
     )
-    print(prediction)
     score = f1_score(
         y_true=loaded_arrays['y_c_ts'][indices],
         y_pred=np.around(prediction),
@@ -401,7 +400,7 @@ for context in np.unique(loaded_arrays['context_ts']):
         context,
         'smape',
         score,
-        model.get_fitting_time()
+        bifurcating.get_fitting_time()
     ]
     index += 1
     score = f1_score(
