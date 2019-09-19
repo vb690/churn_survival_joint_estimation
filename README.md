@@ -23,8 +23,18 @@ The aim of our work was to develop a more generalizable and holistic methodlogy 
 Here a graphical reppresentation of the Deep Neural Network architecture we designed and developed for achieving the aformetioned goals  
   
 <p align="center">   
+  
   <img width="300" height="330" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/bm_architecture.jpg">
 </p>
+
+One of the advantege of modelling engagement related behaviours as arising from a common underlying process is that we can interpret this last one as a reppresentation of the user state.  
+  
+<p align="center">  
+    <img width="250" height="250" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/context_emebedding.gif" />
+  <img width="250" height="250" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/churn_embedding.gif" />
+    <img width="250" height="250" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/survival_emebdding.gif" />
+</p>
+
 
 # Data 
 Up Next
