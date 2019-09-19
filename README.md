@@ -1,7 +1,24 @@
 # Modelling Early User-Game Interactions for Joint Estimation of Survival Time and Churn Probability
-Repository hosting a minimal version of the code written for the paper: Modelling Early User-Game Interactions for Joint Estimation of Survival Time and Churn Probability
+Repository hosting a minimal version of the code employed for the paper:  
+  
+`Modelling Early User-Game Interactions for Joint Estimation of Survival Time and Churn Probability` 
+  
 # Overview
-Up Next 
+The aim of our work was to develop a more generalizable and holistic methodlogy for modelling user engagement which possessed characteristics appealing for industry applications. Our goal was two folds:   
+  
+1. **APPLICATIVE GOALS**
+
+   1.1 Create a methdology able to **jointly** estimate engagement related behaviours (i.e. churn probability and survival time) given a          restricted number of observations and features.  
+   1.2 Create a methodlogy which scale well with the number of data points, that is noise resilient and that can be easily integrated in a        larger framework.  
+   1.3 Create a methodology able to explicitly model uncertainty around estimates.  
+  
+2. **THEORETICAL GOALS**  
+   
+   2.1 Evaluate the assumption that non-linear model are more suitable than linear ones.  
+   2.2 Evaluate the assumption that features indicative of behavioural activity are good candidates for modelling churn probability and          survival time.  
+   2.3 Evaluate the assumption that churn probability and survival time can be modelled as arising from a common underlying process.  
+   2.4 Evaluate the assumption that the aformetioned process is better modelled as a dynamic system rather than a static one.  
+
 # Data 
 Up Next
 # Usage
