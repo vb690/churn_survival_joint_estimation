@@ -18,9 +18,13 @@ The aim of our work was to develop a more generalizable and holistic methodlogy 
    2.2 Evaluate the assumption that features indicative of behavioural activity are good candidates for modelling churn probability and          survival time.  
    2.3 Evaluate the assumption that churn probability and survival time can be modelled as arising from a common underlying process.  
    2.4 Evaluate the assumption that the aformetioned process is better modelled as a dynamic system rather than a static one.  
-
-For this purpose we designed and implemented a novel Deep Neural Network architecture
   
+# Proposed Model
+Here a graphical reppresentation of the Deep Neural Network architecture we designed and developed for achieving the aformetioned goals  
+  
+<p align="center">   
+  <img width="300" height="330" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/bm_architecture.jpg">
+</p>
 
 # Data 
 Up Next
