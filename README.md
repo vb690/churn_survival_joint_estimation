@@ -4,7 +4,7 @@ Repository hosting a minimal version of the code employed for the paper:
 `Modelling Early User-Game Interactions for Joint Estimation of Survival Time and Churn Probability` 
   
 # Overview
-The aim of our work was to develop a more generalizable and holistic methodlogy for modelling user engagement which possessed characteristics appealing for industry applications. Our goal was two folds:   
+The aim of our work was to develop a more generalizable and holistic methodlogy for modelling user engagement which possessed characteristics appealing for industry applications. We therefore tried to achieve two sets of goals: 
   
 1. **APPLICATIVE GOALS**
 
@@ -18,6 +18,9 @@ The aim of our work was to develop a more generalizable and holistic methodlogy 
    2.2 Evaluate the assumption that features indicative of behavioural activity are good candidates for modelling churn probability and          survival time.  
    2.3 Evaluate the assumption that churn probability and survival time can be modelled as arising from a common underlying process.  
    2.4 Evaluate the assumption that the aformetioned process is better modelled as a dynamic system rather than a static one.  
+
+For this purpose we designed and implemented a novel Deep Neural Network architecture
+  
 
 # Data 
 Up Next
