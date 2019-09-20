@@ -30,9 +30,9 @@ Here a graphical reppresentation of the Deep Neural Network architecture we desi
 One of the advantege of modelling engagement related behaviours as arising from a common underlying process is that we can interpret this last one as a reppresentation of the user state.  
   
 <p align="center">  
-    <img width="250" height="250" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/context_emebedding.gif" />
-  <img width="250" height="250" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/churn_embedding.gif" />
-    <img width="250" height="250" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/survival_emebdding.gif" />
+    <img width="250" height="250" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/cont_emb.gif" />
+  <img width="250" height="250" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/chu_emb.gif" />
+    <img width="250" height="250" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/surv_emb.gif" />
 </p>
 
 
