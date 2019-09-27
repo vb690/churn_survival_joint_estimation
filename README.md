@@ -55,10 +55,10 @@ data
 │   X_ts.npy        |   shape=(n, 5+k)  |   Test set features + one-hot encode of context
 │   y_r_tr.npy      |   shape=(n, 1)    |   Training set regression target
 │   y_r_ts.npy      |   shape=(n, 1)    |   Test set regression target
-│   y_c_tr.npy      |   shape=(n, 1)    |   Test set regression targe
-│   y_c_ts.npy      |   shape=(n, 1)    |   Test set regression targe
-|   context_tr.npy  |   shape=(n, 1)    |   Training set context (only for visualization)
-|   context_ts.npy  |   shape=(n, 1)    |   Test set context (only for visualization)
+│   y_c_tr.npy      |   shape=(n, 1)    |   Test set regression target
+│   y_c_ts.npy      |   shape=(n, 1)    |   Test set regression target
+|   context_tr.npy  |   shape=(n, 1)    |   Training set context names
+|   context_ts.npy  |   shape=(n, 1)    |   Test set context names
 |
 └───unfolded
 |
@@ -66,10 +66,10 @@ data
 │   X_ts.npy        |   shape=(n, (5*t)+k)  |   Test set features + one-hot encode of context
 │   y_r_tr.npy      |   shape=(n, 1)        |   Training set regression target
 │   y_r_ts.npy      |   shape=(n, 1)        |   Test set regression target
-│   y_c_tr.npy      |   shape=(n, 1)        |   Test set regression targe
-│   y_c_ts.npy      |   shape=(n, 1)        |   Test set regression targe
-|   context_tr.npy  |   shape=(n, 1)        |   Training set context (only for visualization)
-|   context_ts.npy  |   shape=(n, 1)        |   Test set context (only for visualization)
+│   y_c_tr.npy      |   shape=(n, 1)        |   Test set regression target
+│   y_c_ts.npy      |   shape=(n, 1)        |   Test set regression target
+|   context_tr.npy  |   shape=(n, 1)        |   Training set context names
+|   context_ts.npy  |   shape=(n, 1)        |   Test set context names
 |
 └───temporal  
 |
@@ -79,10 +79,10 @@ data
 │   X_cont_ts.npy   |   shape=(n, 1)      |   Training set context features (numerical encoding)
 │   y_r_tr.npy      |   shape=(n, 1)      |   Training set regression target
 │   y_r_ts.npy      |   shape=(n, 1)      |   Test set regression target
-│   y_c_tr.npy      |   shape=(n, 1)      |   Test set regression targe
-│   y_c_ts.npy      |   shape=(n, 1)      |   Test set regression targe
-|   context_tr.npy  |   shape=(n, 1)      |   Training set context (only for visualization)
-|   context_ts.npy  |   shape=(n, 1)      |   Test set context (only for visualization)
+│   y_c_tr.npy      |   shape=(n, 1)      |   Test set regression target
+│   y_c_ts.npy      |   shape=(n, 1)      |   Test set regression target
+|   context_tr.npy  |   shape=(n, 1)      |   Training set context names
+|   context_ts.npy  |   shape=(n, 1)      |   Test set context names
 ```
 
 # Usage
