@@ -37,11 +37,73 @@ One of the advantege of modelling engagement related behaviours as arising from 
 
 
 # Data 
-Up Next
+Due to commerical sensitivity and  [privacy policies](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation) we are not allowed to freely share the data employed in our work.  
+  
+However, due to the principles that guided the features selection, we believe that their extreme generalizability makes relatively easy to test our methodology on different data sources.  
+    
+For running `minimal_test.py` the follwoing structure in the `data` folder should be respected:
+```
+n=Number of data points
+k=Total number of unique contexts taken into consideration
+t=Maximum number of time-steps taken into consideration
+
+data   
+│
+└───collapsed
+|
+│   X_tr.npy        |   shape=(n, 5+k)  |   Training set features + one-hot encode of context
+│   X_ts.npy        |   shape=(n, 5+k)  |   Test set features + one-hot encode of context
+│   y_r_tr.npy      |   shape=(n, 1)    |   Training set regression target
+│   y_r_ts.npy      |   shape=(n, 1)    |   Test set regression target
+│   y_c_tr.npy      |   shape=(n, 1)    |   Test set regression targe
+│   y_c_ts.npy      |   shape=(n, 1)    |   Test set regression targe
+|   context_tr.npy  |   shape=(n, 1)    |   Training set context (only for visualization)
+|   context_ts.npy  |   shape=(n, 1)    |   Test set context (only for visualization)
+|
+└───unfolded
+|
+│   X_tr.npy        |   shape=(n, (5*t)+k)  |   Training set features + one-hot encode of context
+│   X_ts.npy        |   shape=(n, (5*t)+k)  |   Test set features + one-hot encode of context
+│   y_r_tr.npy      |   shape=(n, 1)        |   Training set regression target
+│   y_r_ts.npy      |   shape=(n, 1)        |   Test set regression target
+│   y_c_tr.npy      |   shape=(n, 1)        |   Test set regression targe
+│   y_c_ts.npy      |   shape=(n, 1)        |   Test set regression targe
+|   context_tr.npy  |   shape=(n, 1)        |   Training set context (only for visualization)
+|   context_ts.npy  |   shape=(n, 1)        |   Test set context (only for visualization)
+|
+└───temporal  
+|
+│   X_feat_tr.npy   |   shape=(n, t, 5)   |   Training set features (temporal format)
+│   X_feat_ts.npy   |   shape=(n, t, 5)   |   Training set features (temporal format)
+│   X_cont_tr.npy   |   shape=(n, 1)      |   Training set context features (numerical encoding)
+│   X_cont_ts.npy   |   shape=(n, 1)      |   Training set context features (numerical encoding)
+│   y_r_tr.npy      |   shape=(n, 1)      |   Training set regression target
+│   y_r_ts.npy      |   shape=(n, 1)      |   Test set regression target
+│   y_c_tr.npy      |   shape=(n, 1)      |   Test set regression targe
+│   y_c_ts.npy      |   shape=(n, 1)      |   Test set regression targe
+|   context_tr.npy  |   shape=(n, 1)      |   Training set context (only for visualization)
+|   context_ts.npy  |   shape=(n, 1)      |   Test set context (only for visualization)
+```
+
 # Usage
 Up Next
 # Requirements
-Up Next
+```
+# Pipenv is a virtual environment manager
+pip install pipenv
+
+# Create a virtual environment in this directory
+pipenv install
+
+# open / activate virtual environment
+pipenv shell
+
+# install all the dependencies
+pip install -r requirements.txt
+# Now we are good to go....
+```  
+  
+For Windows users we strongly advise to install numpy==1.17.1+mkl and scipy==1.3.1 (in this order) directly from the binaries distributed through https://www.lfd.uci.edu/~gohlke/pythonlibs.
 # Cite & Contact
 Please cite this work as:  
 `Bonometti, Valerio, Ringer, Charles, Hall, Mark, Wade, Alex R., Drachen, Anders (2019) Modelling Early User-Game Interactions for Joint Estimation of Survival Time and Churn Probability, In: Proceedings of the IEEE Conference on Games 2019. IEEE`  
