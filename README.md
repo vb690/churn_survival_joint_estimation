@@ -23,9 +23,10 @@ The aim of our work was to develop a more generalizable and holistic methodlogy 
 Here a graphical reppresentation of the Deep Neural Network architecture we designed and developed for achieving the aformetioned goals  
   
 <p align="center">   
-  
   <img width="300" height="330" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/bm_architecture.jpg">
-</p>
+</p>  
+  
+The first section aims to learn an embedding for each game context and fuses it, via concatenation, with a restricted set of features indicative of behavioural activity. The embedding allows the model to learn a rich multi-dimensional representation of the game context projecting similar games into closer points in the latent space. The second section takes these fused representation over time and models them temporally using a Recurrent Neural Network (RNN) employing Long Short-Term Memory (LSTM) cells. The use of a RNN is particularly suitable here because it can handle time series of different lengths and explicitly model temporal dependencies. We thought to use this part of the model for extracting a high level representation of the player state which could be used for predicting measures of future disengagement and sustained engagement. This was achieved by ’branching’ two shallow Neural Networks tasked to perform churn probability and survival time estimation.
 
 One of the advantege of modelling engagement related behaviours as arising from a common underlying process is that we can interpret this last one as a reppresentation of the user state.  
   
