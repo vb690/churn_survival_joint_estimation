@@ -26,16 +26,7 @@ Here a graphical reppresentation of the Deep Neural Network architecture we desi
   <img width="300" height="330" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/bm_architecture.jpg">
 </p>  
   
-The first section aims to learn an embedding for each game context and fuses it, via concatenation, with a restricted set of features indicative of behavioural activity. The embedding allows the model to learn a rich multi-dimensional representation of the game context projecting similar games into closer points in the latent space. The second section takes these fused representation over time and models them temporally using a Recurrent Neural Network (RNN) employing Long Short-Term Memory (LSTM) cells. The use of a RNN is particularly suitable here because it can handle time series of different lengths and explicitly model temporal dependencies. We thought to use this part of the model for extracting a high level representation of the player state which could be used for predicting measures of future disengagement and sustained engagement. This was achieved by ’branching’ two shallow Neural Networks tasked to perform churn probability and survival time estimation.
-
-One of the advantege of modelling engagement related behaviours as arising from a common underlying process is that we can interpret this last one as a reppresentation of the user state.  
-  
-<p align="center">  
-    <img width="280" height="280" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/context_emb.gif" />
-  <img width="280" height="280" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/churn_emb.gif" />
-    <img width="280" height="280" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/survival_emb.gif" />
-</p>
-
+The first section aims to learn an embedding for each game context and fuses it, via concatenation, with a restricted set of features indicative of behavioural activity. The embedding allows the model to learn a rich multi-dimensional representation of the game context projecting similar games into closer points in the latent space. The second section takes these fused representation over time and models them temporally using a Recurrent Neural Network (RNN) employing Long Short-Term Memory (LSTM) cells. The use of a RNN is particularly suitable here because it can handle time series of different lengths and explicitly model temporal dependencies. We thought to use this part of the model for extracting a high level representation of the player state which could be used for predicting measures of future disengagement and sustained engagement. This was achieved by ’branching’ two shallow Neural Networks tasked to perform churn probability and survival time estimation.  
 
 # Data 
 Due to commerical sensitivity and  [privacy policies](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation) we are not allowed to freely share the data employed in our work.  
@@ -85,6 +76,19 @@ data
 |   context_tr.npy  |   shape=(n, 1)      |   Training set context names
 |   context_ts.npy  |   shape=(n, 1)      |   Test set context names
 ```
+# Results
+  
+1. **PERFORMANCE**  
+Up Next
+
+2. **INSPECTING tTHE LEARNED USER EMBEDDING** 
+One of the advantege of modelling engagement related behaviours as arising from a common underlying process is that we can interpret this last one as a reppresentation of the user state.  
+  
+<p align="center">  
+    <img width="280" height="280" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/context_emb.gif" />
+  <img width="280" height="280" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/churn_emb.gif" />
+    <img width="280" height="280" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/survival_emb.gif" />
+</p>
 
 # Usage
 Up Next
