@@ -81,7 +81,7 @@ data
 1. **PERFORMANCE**  
 Up Next
 
-2. **INSPECTING tTHE LEARNED USER EMBEDDING** 
+2. **INSPECTING THE LEARNED USER EMBEDDING**  
 One of the advantege of modelling engagement related behaviours as arising from a common underlying process is that we can interpret this last one as a reppresentation of the user state.  
   
 <p align="center">  
