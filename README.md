@@ -47,8 +47,8 @@ data
 │   X_ts.npy        |   shape=(n, 5+k)  |   Test set features + one-hot encode of context
 │   y_r_tr.npy      |   shape=(n, 1)    |   Training set regression target
 │   y_r_ts.npy      |   shape=(n, 1)    |   Test set regression target
-│   y_c_tr.npy      |   shape=(n, 1)    |   Test set regression target
-│   y_c_ts.npy      |   shape=(n, 1)    |   Test set regression target
+│   y_c_tr.npy      |   shape=(n, 1)    |   Training set classification target
+│   y_c_ts.npy      |   shape=(n, 1)    |   Test set classification target
 |   context_tr.npy  |   shape=(n, 1)    |   Training set context names
 |   context_ts.npy  |   shape=(n, 1)    |   Test set context names
 |
@@ -58,21 +58,21 @@ data
 │   X_ts.npy        |   shape=(n, (5*t)+k)  |   Test set features + one-hot encode of context
 │   y_r_tr.npy      |   shape=(n, 1)        |   Training set regression target
 │   y_r_ts.npy      |   shape=(n, 1)        |   Test set regression target
-│   y_c_tr.npy      |   shape=(n, 1)        |   Test set regression target
-│   y_c_ts.npy      |   shape=(n, 1)        |   Test set regression target
+│   y_c_tr.npy      |   shape=(n, 1)        |   Training set classification target
+│   y_c_ts.npy      |   shape=(n, 1)        |   Test set classification target
 |   context_tr.npy  |   shape=(n, 1)        |   Training set context names
 |   context_ts.npy  |   shape=(n, 1)        |   Test set context names
 |
 └───temporal  
 |
 │   X_feat_tr.npy   |   shape=(n, t, 5)   |   Training set features (temporal format)
-│   X_feat_ts.npy   |   shape=(n, t, 5)   |   Training set features (temporal format)
+│   X_feat_ts.npy   |   shape=(n, t, 5)   |   Test set features (temporal format)
 │   X_cont_tr.npy   |   shape=(n, 1)      |   Training set context features (numerical encoding)
-│   X_cont_ts.npy   |   shape=(n, 1)      |   Training set context features (numerical encoding)
+│   X_cont_ts.npy   |   shape=(n, 1)      |   Test set context features (numerical encoding)
 │   y_r_tr.npy      |   shape=(n, 1)      |   Training set regression target
 │   y_r_ts.npy      |   shape=(n, 1)      |   Test set regression target
-│   y_c_tr.npy      |   shape=(n, 1)      |   Test set regression target
-│   y_c_ts.npy      |   shape=(n, 1)      |   Test set regression target
+│   y_c_tr.npy      |   shape=(n, 1)      |   Training set classification target
+│   y_c_ts.npy      |   shape=(n, 1)      |   Test set classification target
 |   context_tr.npy  |   shape=(n, 1)      |   Training set context names
 |   context_ts.npy  |   shape=(n, 1)      |   Test set context names
 ```
