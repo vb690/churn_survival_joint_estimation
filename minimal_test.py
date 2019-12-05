@@ -4,9 +4,8 @@ import pandas as pd
 
 from sklearn.metrics import f1_score
 
-from keras.regularizers import l1, l1_l2
-from keras.callbacks import EarlyStopping
-from keras_contrib.callbacks.cyclical_learning_rate import CyclicLR
+from tensorflow.keras.regularizers import l1, l1_l2
+from tensorflow.keras.callbacks import EarlyStopping
 
 from modules.utilities.general_utilities import smape_np, smape_k, load_arrays
 from modules.models import MeanModel, LinearModel
@@ -152,7 +151,6 @@ for data_format in ['collapsed', 'unrolled']:
     for model in models:
 
         print('Testing model {}'.format(model.get_model_tag()))
-        lr_scheduler = CyclicLR(mode='triangular2')
         early_stopping = EarlyStopping(
             monitor='val_loss',
             min_delta=0.001,
@@ -166,7 +164,7 @@ for data_format in ['collapsed', 'unrolled']:
             epochs=1,
             verbose=2,
             validation_split=0.2,
-            callbacks=[lr_scheduler, early_stopping]
+            callbacks=[early_stopping]
         )
 
         for context in np.unique(loaded_arrays['context_ts']):
@@ -221,7 +219,6 @@ for data_format in ['collapsed', 'unrolled']:
     for model in models:
 
         print('Testing model {}'.format(model.get_model_tag()))
-        lr_scheduler = CyclicLR(mode='triangular2')
         early_stopping = EarlyStopping(monitor='val_loss',
                                        min_delta=0.001,
                                        patience=4,
@@ -234,7 +231,7 @@ for data_format in ['collapsed', 'unrolled']:
             epochs=1,
             verbose=2,
             validation_split=0.2,
-            callbacks=[lr_scheduler, early_stopping]
+            callbacks=[early_stopping]
         )
 
         for context in np.unique(loaded_arrays['context_ts']):
@@ -378,7 +375,7 @@ bifurcating.fit(x=[
             epochs=1,
             verbose=2,
             validation_split=0.2,
-            callbacks=[lr_scheduler, early_stopping]
+            callbacks=[early_stopping]
             )
 for context in np.unique(loaded_arrays['context_ts']):
 
