@@ -2,10 +2,10 @@ import time
 
 import numpy as np
 
-from keras.layers import Dense, Embedding, TimeDistributed, LSTM
-from keras.layers import Activation
-from keras.layers import Flatten
-from keras.layers import Dropout, BatchNormalization
+from tensorflow.keras.layers import Dense, Embedding, TimeDistributed, LSTM
+from tensorflow.keras.layers import Activation
+from tensorflow.keras.layers import Flatten
+from tensorflow.keras.layers import Dropout, BatchNormalization
 
 
 class _AbstractEstimator:
