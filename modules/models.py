@@ -1,13 +1,13 @@
 import numpy as np
 
-from keras.models import Model
+from tensorflow.keras.models import Model
 
-from keras.layers import Input, Dense, Activation
-from keras.layers import Masking, Lambda
-from keras.layers import Reshape, RepeatVector
-from keras.layers import Dropout
+from tensorflow.keras.layers import Input, Dense, Activation
+from tensorflow.keras.layers import Masking, Lambda
+from tensorflow.keras.layers import Reshape, RepeatVector
+from tensorflow.keras.layers import Dropout
 
-import keras.backend as K
+import tensorflow.keras.backend as K
 
 from modules.utilities.model_utilities import _AbstractEstimator
 
