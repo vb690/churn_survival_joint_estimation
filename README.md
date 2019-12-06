@@ -79,7 +79,23 @@ data
 # Results
   
 1. **PERFORMANCE**  
-Up Next
+For the sake of brevity here we will report, for each estimator, only aggregated metrics over the 6 considered games. More detailed results can be found in the paper.
+
+|Estimator           |Metric|Score|Score |N parameters|Fitting Time|
+|:------------------:|:----:|:---:|:----:|:----------:|:----------:|
+|                    |      |Mean | Std  |            |            |
+|     mean_model     |  f1  |0.334|0.002 |     1      |     0      |
+|   mlp_c_unrolled   |  f1  |0.604|0.098 |   27181    |  108.348   |
+| logistic_unrolled  |  f1  |0.611|0.031 |    107     |   25.281   |
+| logistic_collapsed |  f1  |0.613|0.033 |     17     |   22.767   |
+|  mlp_c_collapsed   |  f1  |0.619|0.042 |   19081    |  108.205   |
+|**bifurcating_temporal**|  **f1**  |**0.679**|**0.024**|   **26902**    |  **2134.809**  |
+|**bifurcating_temporal**|**smape** |**0.267**|**0.058** |   **26902**    |  **2134.809**  |
+|  mlp_r_collapsed   |smape |0.356|0.089 |   19081    |  109.536   |
+|   mlp_r_unrolled   |smape |0.357|0.096 |   27181    |   77.468   |
+|     mean_model     |smape |0.498|0.195 |     1      |     0      |
+|   enet_collapsed   |smape |0.519|0.205 |     17     |  169.825   |
+|   enet_unrolled    |smape |0.519|0.205 |    107     |  212.023   |
 
 2. **INSPECTING THE LEARNED USER EMBEDDING**  
 One of the advantege of modelling engagement related behaviours as arising from a common underlying process is that we can interpret this last one as a reppresentation of the user state.  
