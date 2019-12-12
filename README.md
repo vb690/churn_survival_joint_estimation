@@ -37,7 +37,8 @@ Due to commerical sensitivity and  [data protection regulations](https://en.wiki
   
 However, due to the principles that guided our features selection process (i.e. generalizability and proximity to behavioural primitives), we believe that our methodology can be easily tested on a wide range of data sources with minimal or no adjustments.  
    
-For running `minimal_test.py` the follwoing structure in the `data` folder should be respected:
+For running `minimal_test.py` the follwoing structure in the `data` folder should be respected:  
+  
 ```
 n=Number of data points
 k=Total number of unique contexts taken into consideration
@@ -80,11 +81,12 @@ data
 |   context_tr.npy  |   shape=(n, 1)      |   Training set context names
 |   context_ts.npy  |   shape=(n, 1)      |   Test set context names
 ```
+  
 # Results
   
 1. **PERFORMANCE**  
-For the sake of brevity here we will report, for each estimator, only aggregated metrics over the 6 considered games. More detailed results can be found in the paper.
-
+For the sake of brevity here we will report, for each estimator, only aggregated metrics over the 6 considered games. More detailed results can be found in the paper.  
+  
 |Estimator           |Metric|Score|Score |N parameters|Fitting Time|
 |:------------------:|:----:|:---:|:----:|:----------:|:----------:|
 |                    |      |Mean | Std  |            |            |
@@ -100,7 +102,7 @@ For the sake of brevity here we will report, for each estimator, only aggregated
 |     mean_model     |smape |0.498|0.195 |     1      |     0      |
 |   enet_collapsed   |smape |0.519|0.205 |     17     |  169.825   |
 |   enet_unrolled    |smape |0.519|0.205 |    107     |  212.023   |
-
+  
 2. **INSPECTING THE LEARNED USER EMBEDDING**  
 One of the advantege of modelling engagement related behaviours as arising from a common underlying process is that we can interpret this last one as a reppresentation of the user state.  
   
@@ -109,9 +111,61 @@ One of the advantege of modelling engagement related behaviours as arising from 
   <img width="288" height="288" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/churn_emb.gif" />
     <img width="288" height="288" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/survival_emb.gif" />
 </p>
-
+  
 # Usage
-Up Next
+  
+### Using a model from `models.py`  
+Each model inherits from a protected `AbstractEstimator` class implementing methods which are shared among the various models (e.g. `fit()`, `predict()` ecc...). When instatiated each model needs to receive the feature (`X`) and target (`y`) arrays for inferring the input and output shapes of the underlying TensorFlow graph. For generating the TensorFlow graph (through `Keras functional API`) the `generate_model()` method needs to be called passing two dictionary: one describing the hyper-parameters (i.e. `hp_schema`) and another specifying the parameters for compiling the graph.  
+  
+```{python}
+import numpy as np
+from modules.models import MultilayerPerceptron as MLP
+
+# random data
+X = np.random.random(size=(10000, 100))
+y = np.random.random(size=(10000, 1))
+
+# define the model schemas
+perceptron_c_schemas = {
+  'hp_schema': {
+    'layers': [90, 90, 90],
+    'activation': 'relu',
+    'dropout': 0.0
+   },
+  'comp_schema': {
+    'optimizer': 'adam',
+    'loss': 'binary_crossentropy',
+    'metrics': ['acc']
+   }
+}
+
+# instantiale the model class
+perceptron_c = MLP(
+  X_train=X,
+  y_train=y
+)
+
+# generate the TensorFlow graph
+perceptron_c.generate_model(
+  hp_schema=perceptron_c_schemas['hp_schema'],
+  comp_schema=perceptron_c_schemas['comp_schema'],
+  regression=False,
+  model_tag='my_perceptron_classifier'
+)
+
+# fit here is just a wrapper function for Keras fit() method
+perceptron_c.fit(
+  x=X,
+  y=y,
+  batch_size=256,
+  epochs=10,
+  validation_split=0.2
+)
+```
+
+### Running `minimal_test.py`
+UP NEXT
+
 # Requirements
 ```
 # Pipenv is a virtual environment manager
