@@ -6,22 +6,24 @@ Repository hosting a minimal version of the code employed for the paper:
 # Overview
 The aim of this work was to develop a more generalizable and holistic methodlogy for modelling user engagement which at the same time possessed characteristics appealing for industry applications. In this view we tried to achieve a series of applicative goals:  
   
-1. ### APPLICATIVE GOALS
+### APPLICATIVE GOALS
   
-    1.1 Create a methdology able to **jointly** estimate engagement related behaviours (i.e. churn probability and survival time) given          a restricted number of observations and features.  
-    1.2 Create a methodlogy able to scale well when considering large volumes of data.  
-    1.3 Create a methodology having noise-resilience properties.  
-    1.4 Create a methodology easy to integrate in larger frameworks.  
-    1.5 Create a methodology able to express uncertainty around its estimates.  
+Create a methodology:
+
+  1 Able to **jointly** estimate engagement related behaviours (i.e. churn probability and survival time) given          a restricted       number of observations and features.  
+  2 Able to scale well when considering large volumes of data.  
+  3 Having noise-resilience properties.  
+  4 Easy to integrate in larger frameworks.  
+  5 Able to express uncertainty around its estimates.  
   
 Other than trying to accomplish the aformetioned technical objectives, the present project attempted to test a series of theoretical assumptions:  
   
-2. ### THEORETICAL GOALS
+### THEORETICAL GOALS
   
-    2.1 Non-linear models are more suitable than linear for estimating behaviours arising from complex processes like engagement.  
-    2.2 Churn probability and survival time can be modelled as arising from a common underlying process (i.e. the engagement process).  
-    2.3 The aforementioned process can be expressed through a minimal set of features representing frequency and ammount of behavioural         activity.  
-    2.4 Explicitly modelling the temporal dynamics in the aformentioned behavioural features allows to better estimate churn probability         and survival time, supposedly due to a better approximation of the underlying engagement process.  
+  1 Non-linear models are more suitable than linear for estimating behaviours arising from complex processes like engagement.  
+  2 Churn probability and survival time can be modelled as arising from a common underlying process (i.e. the engagement process).  
+  3 The aforementioned process can be expressed through a minimal set of features representing frequency and ammount of behavioural         activity.  
+  4 Explicitly modelling the temporal dynamics in the aformentioned behavioural features allows to better estimate churn probability         and survival time, supposedly due to a better approximation of the underlying engagement process.  
   
 # Proposed Model
 Here a graphical reppresentation of the Deep Neural Network architecture we designed and developed for achieving the aformetioned goals  
@@ -30,8 +32,14 @@ Here a graphical reppresentation of the Deep Neural Network architecture we desi
   <img width="300" height="330" src="https://raw.githubusercontent.com/vb690/churn_survival_joint_estimation/master/figures/bm_architecture.jpg">
 </p>  
   
-The first section aims to learn an embedding for each game context and fusing it with a restricted number of features indicative of behavioural activity. This is achieved concatenating the two tensors and applying a set of non-linear transformations in a time-distributed way. The context embedding allows the model to learn a rich multi-dimensional representation of each considered game projecting similar games into closer points in the latent space. This allows to appropriately weight the behavioural features according to the context to which they belong. In this way, the model has the ability to become more proficient and more genralizable the more contexts are provided at training time. The second section takes these fused representation over time and models them temporally using a Recurrent Neural Network (RNN) employing Long Short-Term Memory (LSTM) cells. The use of a RNN is particularly suitable here because it can handle time series of different lengths and explicitly model temporal dependencies. We thought to use this part of the model for extracting a high level representation of the player state which could be used for predicting measures of future disengagement and sustained engagement. This was achieved by ’branching’ two shallow Neural Networks tasked to perform churn probability and survival time estimation.  
-
+The first section aims to learn an embedding for each game context and fusing it with a restricted number of features indicative of behavioural activity. This is achieved concatenating the two tensors and applying a set of non-linear transformations in a time-distributed way.  
+  
+The context embedding allows the model to learn a rich multi-dimensional representation of each considered game projecting similar games into closer points in the latent space. This allows to appropriately weight the behavioural features according to the context to which they belong. In this way, the model has the ability to become more proficient and more genralizable the more contexts are provided at training time.  
+  
+The second section takes this fused representation over time and models it temporally using a Recurrent Neural Network (RNN) employing Long Short-Term Memory (LSTM) cells. The use of a RNN is particularly suitable here because it can handle time series of different lengths and explicitly model temporal dependencies between the inputs.  
+  
+We thought to use this part of the model for extracting a high level representation of the player state which could be used for predicting measures of future disengagement and sustained engagement. This was achieved by ’branching’ two shallow Neural Networks tasked to perform churn probability and survival time estimation.  
+  
 # Data 
 Due to commerical sensitivity and  [data protection regulations](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation) we are not allowed to pubblicly release the data employed in the present work.  
   
@@ -84,18 +92,26 @@ data
   
 # Results
   
-1. **PERFORMANCE**  
+### PERFORMANCE
 For the sake of brevity here we will report, for each estimator, only aggregated metrics over the 6 considered games. More detailed results can be found in the paper.  
   
-|Estimator           |Metric|Score|Score |N parameters|Fitting Time|
+**Churn Estimation**  
+  
+|Estimator           |Metric|Score|Score |Number of Parameters|Fitting Time (seconds)|
 |:------------------:|:----:|:---:|:----:|:----------:|:----------:|
 |                    |      |Mean | Std  |            |            |
-|     mean_model     |  f1  |0.334|0.002 |     1      |     0      |
-|   mlp_c_unrolled   |  f1  |0.604|0.098 |   27181    |  108.348   |
-| logistic_unrolled  |  f1  |0.611|0.031 |    107     |   25.281   |
-| logistic_collapsed |  f1  |0.613|0.033 |     17     |   22.767   |
-|  mlp_c_collapsed   |  f1  |0.619|0.042 |   19081    |  108.205   |
 |**bifurcating_temporal**|  **f1**  |**0.679**|**0.024**|   **26902**    |  **2134.809**  |
+|  mlp_c_collapsed   |  f1  |0.619|0.042 |   19081    |  108.205   |
+| logistic_collapsed |  f1  |0.613|0.033 |     17     |   22.767   |
+| logistic_unrolled  |  f1  |0.611|0.031 |    107     |   25.281   |
+|   mlp_c_unrolled   |  f1  |0.604|0.098 |   27181    |  108.348   |
+|     mean_model     |  f1  |0.334|0.002 |     1      |     0      |
+  
+**Survival Estimation**
+  
+|Estimator           |Metric|Score|Score |Number of Parameters|Fitting Time (seconds)|
+|:------------------:|:----:|:---:|:----:|:----------:|:----------:|
+|                    |      |Mean | Std  |            |            |
 |**bifurcating_temporal**|**smape** |**0.267**|**0.058** |   **26902**    |  **2134.809**  |
 |  mlp_r_collapsed   |smape |0.356|0.089 |   19081    |  109.536   |
 |   mlp_r_unrolled   |smape |0.357|0.096 |   27181    |   77.468   |
@@ -103,7 +119,7 @@ For the sake of brevity here we will report, for each estimator, only aggregated
 |   enet_collapsed   |smape |0.519|0.205 |     17     |  169.825   |
 |   enet_unrolled    |smape |0.519|0.205 |    107     |  212.023   |
   
-2. **INSPECTING THE LEARNED USER EMBEDDING**  
+### INSPECTING THE LEARNED USER EMBEDDING  
 One of the advantege of modelling engagement related behaviours as arising from a common underlying process is that we can interpret this last one as a reppresentation of the user state.  
   
 <p align="center">  
@@ -117,7 +133,7 @@ One of the advantege of modelling engagement related behaviours as arising from 
 ### Using a model from `models.py`  
 Each model inherits from a protected `AbstractEstimator` class implementing methods which are shared among the various models (e.g. `fit()`, `predict()` ecc...). When instatiated each model needs to receive the feature (`X`) and target (`y`) arrays for inferring the input and output shapes of the underlying TensorFlow graph. For generating the TensorFlow graph (through `Keras functional API`) the `generate_model()` method needs to be called passing two dictionary: one describing the hyper-parameters (i.e. `hp_schema`) and another specifying the parameters for compiling the graph.  
   
-```{python}
+```python
 import numpy as np
 from modules.models import MultilayerPerceptron as MLP
 
@@ -164,7 +180,10 @@ perceptron_c.fit(
 ```
 
 ### Running `minimal_test.py`
-UP NEXT
+This is a script for fitting and comparing the various models presented in the paper, it will generate and save (in the `results` folder) a CSV file containing a more detailed version of table present in the `Perfromance` section.  
+The only requirements for running `minimal_test.py` are: having all the necessary libraries and having the relevant `numpy` arrays in the `data` folder.  
+  
+Bare in mind that for running the script without any further change, `minimal_test.py` requires already pre-processed data in the previously defined shape.  
 
 # Requirements
 ```
@@ -187,4 +206,5 @@ For Windows users we strongly advise to install numpy==1.17.1+mkl and scipy==1.3
 Please cite this work as:  
 `Bonometti, Valerio, Ringer, Charles, Hall, Mark, Wade, Alex R., Drachen, Anders (2019) Modelling Early User-Game Interactions for Joint Estimation of Survival Time and Churn Probability, In: Proceedings of the IEEE Conference on Games 2019. IEEE`  
   
-Or get in contact with us, we are looking for collaboration opportunities.
+Or get in touch with us here(mailto:vb690@york.ac.uk), we are looking for collaboration opportunities.  
+  
