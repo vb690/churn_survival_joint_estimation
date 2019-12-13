@@ -186,17 +186,19 @@ The only requirements for running `minimal_test.py` are: having all the necessar
 Bare in mind that for running the script without any further change, `minimal_test.py` requires already pre-processed data in the previously defined shape.  
 
 # Requirements
-```
+Either install the requirements on your local machine through `pip install -r requirements.txt` or create a virtual environment with:  
+  
+```python
 # Pipenv is a virtual environment manager
 pip install pipenv
 
 # Create a virtual environment in this directory
 pipenv install
 
-# open / activate virtual environment
+# Open / activate virtual environment
 pipenv shell
 
-# install all the dependencies
+# Install all the dependencies
 pip install -r requirements.txt
 # Now we are good to go....
 ```  
@@ -206,5 +208,5 @@ For Windows users we strongly advise to install numpy==1.17.1+mkl and scipy==1.3
 Please cite this work as:  
 `Bonometti, Valerio, Ringer, Charles, Hall, Mark, Wade, Alex R., Drachen, Anders (2019) Modelling Early User-Game Interactions for Joint Estimation of Survival Time and Churn Probability, In: Proceedings of the IEEE Conference on Games 2019. IEEE`  
   
-Or get in touch with us here(mailto:vb690@york.ac.uk), we are looking for collaboration opportunities.  
+Or get in touch with us at <vb690@york.ac.uk>, we are looking for collaboration opportunities.  
   
