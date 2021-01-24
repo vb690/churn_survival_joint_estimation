@@ -1,7 +1,7 @@
 # Modelling Early User-Game Interactions for Joint Estimation of Survival Time and Churn Probability
 Repository hosting a minimal version of the code employed for the paper:  
   
-`Modelling Early User-Game Interactions for Joint Estimation of Survival Time and Churn Probability` 
+[Modelling Early User-Game Interactions for Joint Estimation of Survival Time and Churn Probability](https://arxiv.org/abs/1905.10998)
   
 # Overview
 The aim of this work was to develop a more generalizable and holistic methodlogy for modelling user engagement which at the same time possessed characteristics appealing for industry applications. In this view we tried to achieve a series of applicative goals:  
@@ -206,7 +206,21 @@ pip install -r requirements.txt
 For Windows users we strongly advise to install numpy==1.17.1+mkl and scipy==1.3.1 (in this order) directly from the binaries distributed through https://www.lfd.uci.edu/~gohlke/pythonlibs.
 # Cite & Contact
 Please cite this work as:  
+  
 `Bonometti, Valerio, Ringer, Charles, Hall, Mark, Wade, Alex R., Drachen, Anders (2019) Modelling Early User-Game Interactions for Joint Estimation of Survival Time and Churn Probability, In: Proceedings of the IEEE Conference on Games 2019. IEEE`  
+  
+Bibtex entry:
+
+```
+@inproceedings{bonometti2019modelling,
+  title={Modelling early user-game interactions for joint estimation of survival time and churn probability},
+  author={Bonometti, Valerio and Ringer, Charles and Hall, Mark and Wade, Alex R and Drachen, Anders},
+  booktitle={2019 IEEE Conference on Games (CoG)},
+  pages={1--8},
+  year={2019},
+  organization={IEEE}
+}
+```
   
 Or get in touch with us at <vb690@york.ac.uk>, we are looking for collaboration opportunities.  
   
